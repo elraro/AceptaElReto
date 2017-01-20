@@ -1,4 +1,4 @@
-package intervalo100.p10;
+package intervalo100;
 
 import java.io.BufferedReader;
 import java.io.IOException;

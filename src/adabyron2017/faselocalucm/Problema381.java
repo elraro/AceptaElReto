@@ -3,24 +3,23 @@ package adabyron2017.faselocalucm;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Problema381 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		int l;
-		String[] arr;
 		int i;
 		int r;
 		while (true) {
-			l = Integer.parseInt(in.readLine());
+			int l = Integer.parseInt(in.readLine());
 			if (l == 0) {
 				break;
 			}
-			arr = in.readLine().split(" ");
-			r = Integer.parseInt(arr[0]);
+			StringTokenizer arr = new StringTokenizer(in.readLine());
+			r = Integer.parseInt(arr.nextToken());
 			for (i = 1; i < l; i++) {
-				r = mcm(r, Integer.parseInt(arr[i]));
+				r = mcm(r, Integer.parseInt(arr.nextToken()));
 			}
 			System.out.println(r);
 			r = 0;
