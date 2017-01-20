@@ -1,4 +1,4 @@
-package intervalo200.p50;
+package intervalo200;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
