@@ -13,8 +13,8 @@ public class Problema372 {
 		int j = Integer.parseInt(in.readLine());
 		for (int i = 0; i < j; i++) {
 			char[] a = new StringBuilder(in.readLine()).reverse().toString().toCharArray();
-			if (Character.isUpperCase(a[a.length-1])) {
-				a[a.length-1] = Character.toLowerCase(a[a.length-1]);
+			if (Character.isUpperCase(a[a.length - 1])) {
+				a[a.length - 1] = Character.toLowerCase(a[a.length - 1]);
 				a[0] = Character.toUpperCase(a[0]);
 			}
 			sb.append(a).append("\n");
