@@ -3,17 +3,15 @@ package intervalo300;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Set;
 
 public class Problema319 {
 
 	private static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 	private static StringBuilder sb = new StringBuilder();
 	private static Queue<Integer> queue = new LinkedList<Integer>();
-	private static Set<Integer> duplicates = new HashSet<Integer>();
+	private static int[] duplicates = new int [10000];
 
 	public static void main(String[] args) throws IOException {
 		String line;
@@ -30,7 +28,7 @@ public class Problema319 {
 			queue.add(null);
 			while (!queue.isEmpty()) {
 				Integer s = queue.poll();
-				duplicates.remove(s);
+				duplicates[start] = 0;
 				if (s == null) {
 					i += 1;
 					queue.add(null);
@@ -40,25 +38,25 @@ public class Problema319 {
 					break;
 				}
 				calc = (s + 1) % 10000;
-				if (!duplicates.contains(calc)) {
+				if (duplicates[calc] == 0) {
 					queue.add(calc);
-					duplicates.add(calc);
+					duplicates[calc] = 1;
 				}
 				calc = (s * 2) % 10000;
-				if (!duplicates.contains(calc)) {
+				if (duplicates[calc] == 0) {
 					queue.add(calc);
-					duplicates.add(calc);
+					duplicates[calc] = 1;
 				}
 				calc = (s / 3) % 10000;
-				if (!duplicates.contains(calc)) {
+				if (duplicates[calc] == 0) {
 					queue.add(calc);
-					duplicates.add(calc);
+					duplicates[calc] = 1;
 				}
 			}
 			sb.append(i).append("\n");
 			queue.clear();
-			duplicates.clear();
+			duplicates = new int [10000];
 		}
-		System.out.println(sb.toString());
+		System.out.print(sb.toString());
 	}
 }
