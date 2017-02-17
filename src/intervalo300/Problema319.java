@@ -5,25 +5,26 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class Problema319 {
 
 	private static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 	private static StringBuilder sb = new StringBuilder();
+	private static StringTokenizer st;
 	private static Queue<Integer> queue = new LinkedList<Integer>();
 	private static int[] duplicates = new int [10000];
 
 	public static void main(String[] args) throws IOException {
 		String line;
 		while ((line = in.readLine()) != null) {
-			String[] numbers;
 			int start;
 			int sol;
 			int i = 0;
 			int calc;
-			numbers = line.split(" ");
-			start = Integer.parseInt(numbers[0]);
-			sol = Integer.parseInt(numbers[1]);
+			st = new StringTokenizer(line, " ");
+			start = Integer.parseInt(st.nextToken());
+			sol = Integer.parseInt(st.nextToken());
 			queue.add(start);
 			queue.add(null);
 			while (!queue.isEmpty()) {
