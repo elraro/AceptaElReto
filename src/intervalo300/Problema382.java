@@ -1,42 +1,42 @@
 package intervalo300;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Problema382 {
+	
+	static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+	static int l;
+	static int longitudMetro;
+	static int inicioMetro;
+	static int distanciaAntena;
+	static int radioAntena;
+	static StringTokenizer st;
+	static StringBuilder sb = new StringBuilder();
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		int l = Integer.parseInt(in.readLine());
-		String[] line;
-		int longitudMetro;
-		int antenas;
-		int inicioMetro;
-		int distanciaAntena;
-		int radioAntena;
-		for(int i=0; i < l; i++) {
+	public static void main(String[] args) throws NumberFormatException, Exception {
+		l = Integer.parseInt(in.readLine());
+		for (int i = 0; i < l; i++) {
 			inicioMetro = 0;
-			line = in.readLine().split(" ");
-			longitudMetro = Integer.parseInt(line[0]);
-			antenas = Integer.parseInt(line[1]);
-			line = in.readLine().split(" ");
-			for(int j = 0; j < antenas; j++) {
-				distanciaAntena = Integer.parseInt(line[j*2]);
-				radioAntena = Integer.parseInt(line[j*2+1]);
-//				System.out.println("Distancia antena: " + distanciaAntena);
-//				System.out.println("Radio antena: " + radioAntena);
-//				System.out.println("Inicio: " + inicioMetro);
-				if (distanciaAntena-radioAntena <= inicioMetro) {
-					if (distanciaAntena+radioAntena > inicioMetro)
+			st = new StringTokenizer(in.readLine());
+			longitudMetro = Integer.parseInt(st.nextToken());
+			st.nextToken(); // las antenas
+			st = new StringTokenizer(in.readLine());
+			while (st.hasMoreTokens()) {
+				distanciaAntena = Integer.parseInt(st.nextToken());
+				radioAntena = Integer.parseInt(st.nextToken());
+				if (distanciaAntena - radioAntena <= inicioMetro) {
+					if (distanciaAntena + radioAntena > inicioMetro)
 						inicioMetro = distanciaAntena + radioAntena;
 				}
 			}
 			if (inicioMetro >= longitudMetro) {
-				System.out.println("SI");
+				sb.append("SI\n");
 			} else {
-				System.out.println("NO");
+				sb.append("NO\n");
 			}
 		}
+		System.out.print(sb.toString());
 	}
 }

@@ -5,14 +5,17 @@ import java.io.InputStreamReader;
 
 public class Problema362 {
 
-	private static StringBuilder sb = new StringBuilder();
-	private static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+	static StringBuilder sb = new StringBuilder();
+	static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+	static final String PUTANAVIDAD = "25 12";
+	static final String SI = "SI\n";
+	static final String NO = "NO\n";
 
-	private static final int radix = 10;
-	private static int result = 0;
-	private static int i = 0;
-	private static int len;
-	private static int digit;
+	static final int radix = 10;
+	static int result = 0;
+	static int i = 0;
+	static int len;
+	static int digit;
 
 	public static void main(String[] args) throws Exception {
 
@@ -27,12 +30,11 @@ public class Problema362 {
 		result = -result;
 
 		for (int i = 0; i < result; i++) {
-			if (in.readLine().equals("25 12"))
-				sb.append("SI\n");
+			if (in.readLine().equals(PUTANAVIDAD))
+				sb.append(SI);
 			else
-				sb.append("NO\n");
+				sb.append(NO);
 		}
 		System.out.print(sb.toString());
 	}
 }
-

@@ -3,61 +3,68 @@ package intervalo300;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Problema319 {
 
-	private static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-	private static StringBuilder sb = new StringBuilder();
-	private static StringTokenizer st;
-	private static Queue<Integer> queue = new LinkedList<Integer>();
-	private static int[] duplicates = new int [10000];
+	static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+	static StringBuilder sb = new StringBuilder();
+	static StringTokenizer st;
+	static int[] queue = new int[20000];
+	static boolean[] duplicates;
+	final static String SALTO = "\n";
+	final static int LEVEL = -1;
+	static String line;
+	static int start;
+	static int sol;
+	static int i;
+	static int calc;
 
 	public static void main(String[] args) throws IOException {
-		String line;
 		while ((line = in.readLine()) != null) {
-			int start;
-			int sol;
-			int i = 0;
-			int calc;
 			st = new StringTokenizer(line, " ");
-			start = Integer.parseInt(st.nextToken());
+			queue[0] = Integer.parseInt(st.nextToken());
 			sol = Integer.parseInt(st.nextToken());
-			queue.add(start);
-			queue.add(null);
-			while (!queue.isEmpty()) {
-				Integer s = queue.poll();
-				duplicates[start] = 0;
-				if (s == null) {
-					i += 1;
-					queue.add(null);
+			queue[1] = -1;
+			duplicates = new boolean[10000];
+			i = 0;
+			int head = 0;
+			int tail = 2;
+			while (head < tail) {
+				int next = queue[head];
+				head++;
+				if (next == LEVEL) {
+					i++;
+					queue[tail] = LEVEL;
+					tail++;
 					continue;
 				}
-				if (s == sol) {
+				if (next == sol) {
 					break;
 				}
-				calc = (s + 1) % 10000;
-				if (duplicates[calc] == 0) {
-					queue.add(calc);
-					duplicates[calc] = 1;
+
+				calc = (next + 1) % 10000;
+				if (!duplicates[calc]) {
+					queue[tail] = calc;
+					tail++;
+					duplicates[calc] = true;
 				}
-				calc = (s * 2) % 10000;
-				if (duplicates[calc] == 0) {
-					queue.add(calc);
-					duplicates[calc] = 1;
+				calc = (next * 2) % 10000;
+				if (!duplicates[calc]) {
+					queue[tail] = calc;
+					tail++;
+					duplicates[calc] = true;
 				}
-				calc = (s / 3) % 10000;
-				if (duplicates[calc] == 0) {
-					queue.add(calc);
-					duplicates[calc] = 1;
+				calc = (next / 3) % 10000;
+				if (!duplicates[calc]) {
+					queue[tail] = calc;
+					tail++;
+					duplicates[calc] = true;
 				}
 			}
-			sb.append(i).append("\n");
-			queue.clear();
-			duplicates = new int [10000];
+			sb.append(i).append(SALTO);
 		}
 		System.out.print(sb.toString());
 	}
 }
+
