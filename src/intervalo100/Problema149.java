@@ -1,14 +1,15 @@
 package intervalo100;
 
+import java.util.Scanner;
+
 public class Problema149 {
 
-	static java.util.Scanner in;
+	static Scanner in = new Scanner(System.in);
 
 	public static boolean putoBugAsqueroso() {
 		int n;
 		try {
 			n = in.nextInt();
-
 		} catch (Exception e) {
 			return false;
 		}
@@ -25,7 +26,6 @@ public class Problema149 {
 	}
 
 	public static void main(String args[]) {
-		in = new java.util.Scanner(System.in);
 		while (putoBugAsqueroso());
 	}
 
