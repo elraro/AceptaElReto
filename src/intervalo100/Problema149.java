@@ -1,25 +1,32 @@
 package intervalo100;
 
-import java.util.Scanner;
-
 public class Problema149 {
-	
-	static StringBuilder sb = new StringBuilder();
-	static Scanner sc = new Scanner(System.in);
 
-	public static void main(String[] args) {
-		long vel = 0, velocidad = 0;
-		long casos;
-		while (sc.hasNextInt()) {
-			casos = sc.nextInt();
-			for (long i = 0; i < casos; i++) {
-				velocidad = sc.nextInt();
-				if (velocidad > vel)
-					vel = velocidad;
-			}
-			sb.append(velocidad).append("\n");
-			vel = 0;
+	static java.util.Scanner in;
+
+	public static boolean putoBugAsqueroso() {
+		int n;
+		try {
+			n = in.nextInt();
+
+		} catch (Exception e) {
+			return false;
 		}
-		System.out.print(sb.toString());
+
+		long y, z = 0;
+		for (int j = 0; j < n; j++) {
+			y = in.nextLong();
+			if (y > z)
+				z = y;
+		}
+		System.out.printf("%d\n", z);
+		return true;
+
 	}
+
+	public static void main(String args[]) {
+		in = new java.util.Scanner(System.in);
+		while (putoBugAsqueroso());
+	}
+
 }
