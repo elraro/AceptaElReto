@@ -5,28 +5,21 @@ import java.util.Scanner;
 public class Problema149 {
 
 	static Scanner in = new Scanner(System.in);
+	static StringBuilder sb = new StringBuilder();
 
-	public static boolean putoBugAsqueroso() {
-		int n;
-		try {
-			n = in.nextInt();
-		} catch (Exception e) {
-			return false;
+	public static void main(String[] args) {
+		int casos;
+		while (in.hasNext()) {
+			casos = in.nextInt();
+			long y, z = 0;
+			for (int j = 0; j < casos; j++) {
+				y = in.nextLong();
+				if (y > z)
+					z = y;
+			}
+			sb.append(z).append("\n");
 		}
-
-		long y, z = 0;
-		for (int j = 0; j < n; j++) {
-			y = in.nextLong();
-			if (y > z)
-				z = y;
-		}
-		System.out.printf("%d\n", z);
-		return true;
-
-	}
-
-	public static void main(String args[]) {
-		while (putoBugAsqueroso());
+		System.out.print(sb.toString());
 	}
 
 }
