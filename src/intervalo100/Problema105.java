@@ -3,13 +3,11 @@ package intervalo100;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 public class Problema105 {
 
 	static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 	static StringBuilder sb = new StringBuilder();
-	static StringTokenizer st;
 	final static String MARTES = "MARTES";
 	final static String MIERCOLES = "MIERCOLES";
 	final static String JUEVES = "JUEVES";
