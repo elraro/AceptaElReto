@@ -3,33 +3,30 @@ package intervalo100;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
+import java.util.StringTokenizer;
 
 public class Problema191 {
 
 	static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 	static StringBuilder sb = new StringBuilder();
-	static LinkedList<Integer> list;
-	static String line;
-	static int n;
+	static StringTokenizer st;
+	static final String SALTO = "\n";
+	static String[] line;
 	static int c;
+	static int p;
+	static int l;
+	static int d;
+
+	static int t;
 
 	public static void main(String[] args) throws IOException {
-		while ((line = in.readLine()) != null) {
-			n = Integer.parseInt(line);
-			list = new LinkedList<Integer>();
-			for (int i = 2; i < n; i += 2) {
-				list.add(i);
-			}
-			c = 3;
-			while (list.size() > c) {
-				for(int i=0; i < list.size(); i++) {
-					if (i % c == 0) {
-						
-					}
-				}
-				c++;
-			}
+		c = Integer.parseInt(in.readLine());
+		for (int i = 0; i < c; i++) {
+			st = new StringTokenizer(in.readLine(), " ");
+			p = Integer.parseInt(st.nextToken());
+			l = Integer.parseInt(st.nextToken());
+			d = Integer.parseInt(st.nextToken());
+			sb.append(l * p - ((p * (p - 1) / 2) * d)).append(SALTO);
 		}
 		System.out.print(sb.toString());
 	}
