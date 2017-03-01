@@ -11,7 +11,6 @@ public class Problema140 {
 	static StringBuilder sb = new StringBuilder();
 	static StringTokenizer st;
 	static final String SALTO = "\n";
-	static String[] line;
 	static int c;
 	static int p;
 	static int l;
