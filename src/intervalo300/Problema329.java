@@ -33,9 +33,9 @@ public class Problema329 {
 				houses[i] = new House(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
 			}
 			Arrays.sort(houses);
-			for (int i = 0; i < c; i++) {
-				if (houses[i].start >= tunnel) {
-					tunnel = houses[i].end;
+			for(House h : houses) {
+				if (h.start >= tunnel) {
+					tunnel = h.end;
 					tunnels++;
 				}
 			}
